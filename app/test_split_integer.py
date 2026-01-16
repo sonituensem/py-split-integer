@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List
 import pytest
 from app.split_integer import split_integer
 
@@ -54,7 +54,11 @@ def test_should_add_zeros_when_value_less_than_number_of_parts() -> None:
         (1, 1, [1]),
     ]
 )
-def test_parametrized_examples(value: int, parts: int, expected: List[int]) -> None:
+def test_parametrized_examples(
+    value: int,
+    parts: int,
+    expected: List[int]
+) -> None:
     result = split_integer(value, parts)
     assert sum(result) == value
     assert max(result) - min(result) <= 1
